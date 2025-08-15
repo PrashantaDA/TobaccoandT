@@ -8,10 +8,10 @@ const NavLink = ({ to, children, onClick }) => (
 	<Link
 		to={to}
 		onClick={onClick}
-		className="text-3xl relative group transition-all duration-300 hover:text-white links cursor-pointer"
+		className="text-2xl relative group transition-all duration-300 hover:text-white links cursor-pointer"
 	>
 		<span className="relative z-10">{children}</span>
-		<span className="absolute -bottom-2 left-0 w-0 h-1 bg-gradient-to-r from-black-400 to-red-500 transition-all duration-300 group-hover:w-full"></span>
+		<span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-gradient-to-r from-amber-500 to-red-500 transition-all duration-300 group-hover:w-full"></span>
 	</Link>
 );
 
@@ -27,17 +27,17 @@ const Navbar = () => {
 	};
 
 	return (
-		<nav className="w-full bg-transparent min-h-[20dvh] relative">
+		<nav className="w-full bg-transparent min-h-[12dvh] relative">
 			{/* Desktop Layout - Preserved Original Styling */}
-			<div className="hidden lg:flex justify-evenly items-center w-full gap-20 mx-auto py-2">
+			<div className="hidden lg:flex justify-evenly items-center w-full gap-12 mx-auto py-2">
 				<div className="logo">
 					<img
 						src={COMPANY_INFO.logo}
 						alt="logo"
-						className="h-40 w-auto"
+						className="h-28 w-auto transition-transform duration-300 hover:scale-105"
 					/>
 				</div>
-				<div className="links flex gap-12">
+				<div className="links flex gap-10">
 					{NAVIGATION_DATA.map((link) => (
 						<NavLink
 							key={link.to}
@@ -55,7 +55,7 @@ const Navbar = () => {
 					<img
 						src={COMPANY_INFO.logo}
 						alt="logo"
-						className="h-20 w-auto"
+						className="h-14 w-auto transition-transform duration-300 hover:scale-105"
 					/>
 				</div>
 
