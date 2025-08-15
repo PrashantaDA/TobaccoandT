@@ -22,7 +22,7 @@ const Products = () => {
 		}
 	}, [searchParams]);
 
-	// Scroll to top function
+	// Scroll to top function (kept for navigation to product detail)
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 	};
@@ -49,7 +49,7 @@ const Products = () => {
 	const handleCategoryChange = (categoryId) => {
 		setSelectedCategory(categoryId);
 		setSearchParams({ category: categoryId });
-		scrollToTop();
+		// Do not scroll when changing filters/categories on this page
 	};
 
 	const clearFilters = () => {
@@ -57,7 +57,7 @@ const Products = () => {
 		setSearchTerm("");
 		setSortBy("name");
 		setSearchParams({});
-		scrollToTop();
+		// Do not scroll when clearing filters on this page
 	};
 
 	const handleProductClick = (productId) => {
