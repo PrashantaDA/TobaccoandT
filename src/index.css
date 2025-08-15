@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Mozilla+Headline:wght@200..700&display=swap");
+@import "tailwindcss";
+
+body {
+	font-family: "Mozilla Headline", "Trebuchet MS", sans-serif;
+	color: #e5e5e5;
+	/* Global smoky background with dark overlay */
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("./assets/Smoke.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+/* Dark theme overrides */
+#root {
+	background-color: transparent;
+	min-height: 100vh;
+}
+
+/* Ensure all text has good contrast on dark background */
+* {
+	color-scheme: dark;
+}
+
+/* Line clamp utilities for product descriptions */
+.line-clamp-2 {
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.line-clamp-3 {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
