@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import BoundaryLoader from "./components/BoundaryLoader";
+import Footer from "./components/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const Products = lazy(() => import("./pages/Products"));
@@ -60,6 +61,7 @@ const App = () => {
 					/>
 				</Routes>
 			</Suspense>
+			<Footer />
 		</div>
 	);
 };

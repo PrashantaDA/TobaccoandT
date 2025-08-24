@@ -336,11 +336,11 @@ export const FOOTER_DATA = {
 		{ name: "WhatsApp", icon: "FaWhatsapp", url: "#", color: "hover:text-green-500" },
 	],
 	contactInfo: {
-		phone: "+1 (555) 123-4567",
-		email: "info@tobaccoandthings.com",
+		phone: "+1 (859)-608-1400",
+		email: "-",
 		address: {
-			street: "123 Tobacco Street",
-			city: "Smoke City, SC 12345",
+			street: "537 Waller Ave",
+			city: "Lexington, KY, 40504",
 		},
 	},
 };
@@ -354,7 +354,7 @@ export const NAVIGATION_DATA = [
 
 // Company Information
 export const COMPANY_INFO = {
-	name: "Tobacco & Things",
+	name: "Tobacco N Things",
 	description: "Your local tobacco shop offering quality products, friendly service, and a wide selection of smoking accessories.",
 	logo: logoImg,
 };

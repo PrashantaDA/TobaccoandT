@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { motion } from "motion/react";
 import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import Footer from "../components/Footer";
 
 const About = () => {
 	useEffect(() => {
@@ -96,8 +95,6 @@ const About = () => {
 					</motion.div>
 				</motion.div>
 			</section>
-
-			<Footer />
 		</div>
 	);
 };

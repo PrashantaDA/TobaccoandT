@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-import Footer from "../components/Footer";
+
 import { FOOTER_DATA, COMPANY_INFO } from "../constants/constants";
 
 const Contact = () => {
@@ -156,8 +157,6 @@ const Contact = () => {
 					</div>
 				</motion.div>
 			</section>
-
-			<Footer />
 		</div>
 	);
 };

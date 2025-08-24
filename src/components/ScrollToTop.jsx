@@ -4,13 +4,19 @@ import { useLocation } from "react-router-dom";
 const ScrollToTop = () => {
 	const { pathname, search, hash } = useLocation();
 	const [visible, setVisible] = useState(false);
+	const [prevPathname, setPrevPathname] = useState(pathname);
 
 	useEffect(() => {
-		// If a hash is present, let the browser handle anchor jump
-		if (!hash) {
-			window.scrollTo({ top: 0, behavior: "smooth" });
+		// Only scroll to top if the pathname actually changed (page navigation)
+		// Don't scroll when only query parameters change (filters, search, etc.)
+		if (pathname !== prevPathname) {
+			// If a hash is present, let the browser handle anchor jump
+			if (!hash) {
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			}
+			setPrevPathname(pathname);
 		}
-	}, [pathname, search, hash]);
+	}, [pathname, hash, prevPathname]);
 
 	useEffect(() => {
 		const onScroll = () => setVisible(window.scrollY > 300);

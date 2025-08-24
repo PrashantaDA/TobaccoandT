@@ -1,9 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { FaSearch, FaFilter, FaTimes } from "react-icons/fa";
-import Footer from "../components/Footer";
 import { PRODUCTS_DATA, PRODUCT_CATEGORIES } from "../constants/constants";
 
 const Products = () => {
@@ -13,18 +12,26 @@ const Products = () => {
 	const [sortBy, setSortBy] = useState("name");
 	const [showFilters, setShowFilters] = useState(false);
 	const navigate = useNavigate();
+	const filtersSectionRef = useRef(null);
 
-	// Get category from URL params
+	// Get category from URL params only on initial load
 	useEffect(() => {
 		const category = searchParams.get("category");
-		if (category) {
+		if (category && category !== selectedCategory) {
 			setSelectedCategory(category);
 		}
-	}, [searchParams]);
+	}, []); // Only run once on mount
 
 	// Scroll to top function (kept for navigation to product detail)
 	const scrollToTop = () => {
 		window.scrollTo({ top: 0, behavior: "smooth" });
+	};
+
+	// Scroll to filters section
+	const scrollToFilters = () => {
+		if (filtersSectionRef.current) {
+			filtersSectionRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+		}
 	};
 
 	// Filter and sort products
@@ -48,16 +55,21 @@ const Products = () => {
 
 	const handleCategoryChange = (categoryId) => {
 		setSelectedCategory(categoryId);
-		setSearchParams({ category: categoryId });
-		// Do not scroll when changing filters/categories on this page
+		setSearchParams({ category: categoryId }, { replace: true });
+		scrollToFilters();
+	};
+
+	const handleSortChange = (sortValue) => {
+		setSortBy(sortValue);
+		scrollToFilters();
 	};
 
 	const clearFilters = () => {
 		setSelectedCategory("all");
 		setSearchTerm("");
 		setSortBy("name");
-		setSearchParams({});
-		// Do not scroll when clearing filters on this page
+		setSearchParams({}, { replace: true });
+		scrollToFilters();
 	};
 
 	const handleProductClick = (productId) => {
@@ -92,6 +104,7 @@ const Products = () => {
 
 					{/* Search and Filters */}
 					<motion.div
+						ref={filtersSectionRef}
 						initial={{ opacity: 0, y: 20 }}
 						animate={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.6, delay: 0.4 }}
@@ -113,7 +126,7 @@ const Products = () => {
 							{/* Sort Dropdown */}
 							<select
 								value={sortBy}
-								onChange={(e) => setSortBy(e.target.value)}
+								onChange={(e) => handleSortChange(e.target.value)}
 								className="px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:border-amber-500 transition-colors cursor-pointer"
 							>
 								<option value="name">Sort by Name</option>
@@ -264,9 +277,6 @@ const Products = () => {
 					)}
 				</div>
 			</motion.div>
-
-			{/* Footer */}
-			<Footer />
 		</div>
 	);
 };

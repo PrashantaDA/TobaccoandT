@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
+
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { FaArrowLeft, FaStar, FaCheck, FaTimes } from "react-icons/fa";
 import Footer from "../components/Footer";
@@ -202,9 +202,6 @@ const ProductDetail = () => {
 					</div>
 				</motion.div>
 			)}
-
-			{/* Footer */}
-			<Footer />
 		</div>
 	);
 };
