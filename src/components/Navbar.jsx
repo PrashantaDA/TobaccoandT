@@ -8,7 +8,7 @@ const NavLink = ({ to, children, onClick }) => (
 	<Link
 		to={to}
 		onClick={onClick}
-		className="text-2xl relative group transition-all duration-300 hover:text-white links cursor-pointer"
+		className="text-xl relative group transition-all duration-300 hover:text-white links cursor-pointer "
 	>
 		<span className="relative z-10">{children}</span>
 		<span className="absolute -bottom-2 left-0 w-0 h-[2px] bg-gradient-to-r from-amber-500 to-red-500 transition-all duration-300 group-hover:w-full"></span>
@@ -37,7 +37,7 @@ const Navbar = () => {
 						className="h-28 w-auto transition-transform duration-300 hover:scale-105"
 					/>
 				</div>
-				<div className="links flex gap-10">
+				<div className="links flex gap-9">
 					{NAVIGATION_DATA.map((link) => (
 						<NavLink
 							key={link.to}
@@ -135,9 +135,9 @@ const Navbar = () => {
 							<div className="text-center">
 								<p className="text-sm leading-relaxed">
 									{/* Template - Replace with your actual address */}
-									123 Tobacco Street
+									537 Waller Ave
 									<br />
-									Vape City, VC 12345
+									Lexington, KY, 40504
 								</p>
 							</div>
 
@@ -145,7 +145,7 @@ const Navbar = () => {
 							<div className="text-center">
 								<p className="text-sm">
 									{/* Template - Replace with your actual phone */}
-									(555) 123-4567
+									+1 (859)-608-1400
 								</p>
 							</div>
 						</div>
