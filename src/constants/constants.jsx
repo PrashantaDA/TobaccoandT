@@ -325,9 +325,9 @@ export const FOOTER_DATA = {
 		{ name: "Accessories", path: "/products?category=accessories" },
 	],
 	businessHours: [
-		{ day: "Monday - Friday", hours: "9:00 AM - 8:00 PM" },
-		{ day: "Saturday", hours: "10:00 AM - 7:00 PM" },
-		{ day: "Sunday", hours: "11:00 AM - 6:00 PM" },
+		{ day: "Saturday - Sunday", hours: "10:00 AM - 10:00 PM" },
+		{ day: "Monday - Tuesday", hours: "10:00 AM - 08:00 PM" },
+		{ day: "Wednesday - Friday", hours: "10:00 AM - 10:00 PM" },
 	],
 	socialLinks: [
 		{ name: "Facebook", icon: "FaFacebook", url: "#", color: "hover:text-blue-500" },
