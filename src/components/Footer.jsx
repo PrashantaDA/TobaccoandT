@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-
 import { Link, useNavigate } from "react-router-dom";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { motion } from "motion/react";
 import { FOOTER_DATA, COMPANY_INFO } from "../constants/constants";
 
 const Footer = () => {
@@ -44,7 +43,7 @@ const Footer = () => {
 				<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
 					<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
 						{/* Company Info */}
-						<div
+						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6 }}
@@ -59,25 +58,25 @@ const Footer = () => {
 							{/* Social Media Links */}
 							<div className="flex space-x-4">
 								{FOOTER_DATA.socialLinks.map((social, index) => (
-									<a
+									<motion.a
 										key={social.name}
 										href={social.url}
 										className={`text-gray-400 text-xl transition-all duration-300 ${social.color} hover:scale-110 cursor-pointer`}
 										whileHover={{ scale: 1.1 }}
+										initial={{ opacity: 0, x: -10 }}
+										whileInView={{ opacity: 1, x: 0 }}
 										whileTap={{ scale: 0.95 }}
-										initial={{ opacity: 0, y: 10 }}
-										whileInView={{ opacity: 1, y: 0 }}
 										transition={{ duration: 0.4, delay: index * 0.1 }}
 										viewport={{ once: true }}
 									>
 										{iconMap[social.icon]}
-									</a>
+									</motion.a>
 								))}
 							</div>
-						</div>
+						</motion.div>
 
 						{/* Quick Links */}
-						<div
+						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.1 }}
@@ -86,7 +85,7 @@ const Footer = () => {
 							<h4 className="text-lg font-semibold text-white mb-4">Quick Links</h4>
 							<ul className="space-y-2">
 								{FOOTER_DATA.quickLinks.map((link, index) => (
-									<li
+									<motion.li
 										key={link.name}
 										initial={{ opacity: 0, x: -10 }}
 										whileInView={{ opacity: 1, x: 0 }}
@@ -100,13 +99,13 @@ const Footer = () => {
 											<span className="w-2 h-2 bg-amber-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
 											{link.name}
 										</Link>
-									</li>
+									</motion.li>
 								))}
 							</ul>
-						</div>
+						</motion.div>
 
 						{/* Product Categories */}
-						<div
+						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.2 }}
@@ -115,7 +114,7 @@ const Footer = () => {
 							<h4 className="text-lg font-semibold text-white mb-4">Products</h4>
 							<ul className="space-y-2">
 								{FOOTER_DATA.productCategories.map((category, index) => (
-									<li
+									<motion.li
 										key={category.name}
 										initial={{ opacity: 0, x: -10 }}
 										whileInView={{ opacity: 1, x: 0 }}
@@ -129,13 +128,13 @@ const Footer = () => {
 											<span className="w-2 h-2 bg-amber-400 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
 											{category.name}
 										</button>
-									</li>
+									</motion.li>
 								))}
 							</ul>
-						</div>
+						</motion.div>
 
 						{/* Contact & Hours */}
-						<div
+						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
 							transition={{ duration: 0.6, delay: 0.3 }}
@@ -178,7 +177,7 @@ const Footer = () => {
 									))}
 								</div>
 							</div>
-						</div>
+						</motion.div>
 					</div>
 				</div>
 
@@ -186,7 +185,7 @@ const Footer = () => {
 				<div className="border-t border-gray-700/50">
 					<div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
 						<div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-							<p
+							<motion.p
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
 								transition={{ duration: 0.6 }}
@@ -194,9 +193,9 @@ const Footer = () => {
 								className="text-gray-400 text-sm"
 							>
 								© {currentYear} {COMPANY_INFO.name}. All rights reserved.
-							</p>
+							</motion.p>
 
-							<div
+							<motion.div
 								initial={{ opacity: 0 }}
 								whileInView={{ opacity: 1 }}
 								transition={{ duration: 0.6, delay: 0.2 }}
@@ -217,7 +216,7 @@ const Footer = () => {
 								</Link>
 								<span className="text-gray-600">|</span>
 								<span className="text-gray-500">Age 21+ Only</span>
-							</div>
+							</motion.div>
 						</div>
 					</div>
 				</div>
