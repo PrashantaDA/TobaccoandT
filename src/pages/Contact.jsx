@@ -1,27 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
-
 import { FOOTER_DATA, COMPANY_INFO } from "../constants/constants";
+import { scrollToTop } from "../utils/scrollToTop";
+import { containerVariants, itemVariants } from "../utils/animations";
 
 const Contact = () => {
 	const [form, setForm] = useState({ name: "", email: "", message: "" });
 	const [submitted, setSubmitted] = useState(false);
 
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
+		scrollToTop();
 	}, []);
-
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: { opacity: 1, transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
-	};
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-	};
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;

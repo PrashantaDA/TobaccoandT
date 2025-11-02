@@ -3,15 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock, FaFacebook, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
 import { motion } from "motion/react";
 import { FOOTER_DATA, COMPANY_INFO } from "../constants/constants";
+import { scrollToTop } from "../utils/scrollToTop";
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 	const navigate = useNavigate();
-
-	// Scroll to top function
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	};
 
 	// Icon mapping for social links
 	const iconMap = {

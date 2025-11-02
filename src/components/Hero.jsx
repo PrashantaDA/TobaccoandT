@@ -3,81 +3,27 @@ import heroImage from "../assets/hookah2.png";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { BiChevronRight } from "react-icons/bi";
+import { heroContainerVariants, heroItemVariants, imageVariants, buttonVariants } from "../utils/animations";
 
 const Hero = () => {
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.3,
-				delayChildren: 0.2,
-			},
-		},
-	};
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.6,
-				ease: "easeOut",
-			},
-		},
-	};
-
-	const imageVariants = {
-		hidden: { opacity: 0, scale: 0.8, rotate: -10 },
-		visible: {
-			opacity: 1,
-			scale: 1,
-			rotate: 0,
-			transition: {
-				duration: 0.8,
-				ease: "easeOut",
-			},
-		},
-	};
-
-	const buttonVariants = {
-		hidden: { opacity: 0, scale: 0.9 },
-		visible: {
-			opacity: 1,
-			scale: 1,
-			transition: {
-				duration: 0.5,
-				ease: "easeOut",
-			},
-		},
-		hover: {
-			scale: 1.05,
-			transition: {
-				duration: 0.2,
-				ease: "easeInOut",
-			},
-		},
-	};
 
 	return (
 		<section className="relative max-w-[95dvw] min-h-[80dvh] flex items-center justify-center mx-auto px-4 sm:px-6 pb-8 lg:pb-0">
 			<motion.div
 				className="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
-				variants={containerVariants}
+				variants={heroContainerVariants}
 				initial="hidden"
 				animate="visible"
 			>
 				{/* Main Content - Left Side */}
 				<motion.div
 					className="flex-1 text-center lg:text-left max-w-2xl order-2 lg:order-1"
-					variants={itemVariants}
+					variants={heroItemVariants}
 				>
 					{/* Main Heading */}
 					<motion.h1
 						className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6 leading-tight"
-						variants={itemVariants}
+						variants={heroItemVariants}
 					>
 						<span className="text-gray-100">
 							Premium{" "}
@@ -95,7 +41,7 @@ const Hero = () => {
 					{/* Short Description */}
 					<motion.p
 						className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 lg:mb-8 leading-relaxed px-2 sm:px-0"
-						variants={itemVariants}
+						variants={heroItemVariants}
 					>
 						Discover a wide variety of quality vaping, hookah, cigarette, pipe, tobacco, and related accessories at{" "}
 						<motion.span

@@ -1,54 +1,11 @@
-import React from "react";
 import { motion } from "motion/react";
 import { FaShieldAlt, FaStar, FaUsers, FaHandshake } from "react-icons/fa";
 import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FEATURED_SECTION_DATA } from "../constants/constants";
+import { containerVariants, itemVariants, cardVariants } from "../utils/animations";
 
 const FeaturedSection = () => {
-	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.2,
-				delayChildren: 0.1,
-			},
-		},
-	};
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.6,
-				ease: "easeOut",
-			},
-		},
-	};
-
-	const cardVariants = {
-		hidden: { opacity: 0, scale: 0.9 },
-		visible: {
-			opacity: 1,
-			scale: 1,
-			transition: {
-				duration: 0.5,
-				ease: "easeOut",
-			},
-		},
-		hover: {
-			scale: 1.05,
-			y: -10,
-			transition: {
-				duration: 0.3,
-				ease: "easeInOut",
-			},
-		},
-	};
 
 	// Icon mapping
 	const iconMap = {

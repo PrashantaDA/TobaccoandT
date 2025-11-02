@@ -1,9 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "motion/react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { FaSearch, FaFilter, FaTimes } from "react-icons/fa";
 import { PRODUCTS_DATA, PRODUCT_CATEGORIES } from "../constants/constants";
+import { scrollToTop } from "../utils/scrollToTop";
 
 const Products = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -21,11 +22,6 @@ const Products = () => {
 			setSelectedCategory(category);
 		}
 	}, []); // Only run once on mount
-
-	// Scroll to top function (kept for navigation to product detail)
-	const scrollToTop = () => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
-	};
 
 	// Scroll to filters section
 	const scrollToFilters = () => {

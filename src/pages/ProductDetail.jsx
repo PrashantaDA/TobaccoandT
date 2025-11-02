@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { FaArrowLeft, FaStar, FaCheck, FaTimes } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { PRODUCTS_DATA } from "../constants/constants";
+import { scrollToTop } from "../utils/scrollToTop";
 
 const ProductDetail = () => {
 	const { productId } = useParams();
@@ -18,7 +19,7 @@ const ProductDetail = () => {
 		if (product && product.flavors.length > 0) {
 			setSelectedFlavor(product.flavors[0]);
 		}
-		window.scrollTo({ top: 0, behavior: "smooth" });
+		scrollToTop();
 	}, [product]);
 
 	if (!product) {

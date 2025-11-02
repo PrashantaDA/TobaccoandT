@@ -1,25 +1,14 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
+import { scrollToTop } from "../utils/scrollToTop";
+import { containerVariants, itemVariants } from "../utils/animations";
 
 const About = () => {
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: "smooth" });
+		scrollToTop();
 	}, []);
-
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-		},
-	};
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 30 },
-		visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-	};
 
 	const cardVariants = {
 		hidden: { opacity: 0, scale: 0.95 },

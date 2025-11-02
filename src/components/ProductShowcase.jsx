@@ -1,37 +1,15 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
 import { motion } from "motion/react";
 import { BiChevronRight } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 import { PRODUCT_SHOWCASE_DATA } from "../constants/constants";
+import { scrollToTop } from "../utils/scrollToTop";
+import { showcaseContainerVariants, showcaseItemVariants } from "../utils/animations";
 
 const ProductShowcase = () => {
 	const navigate = useNavigate();
 
 	// Animation variants
-	const containerVariants = {
-		hidden: { opacity: 0 },
-		visible: {
-			opacity: 1,
-			transition: {
-				staggerChildren: 0.3,
-				delayChildren: 0.2,
-			},
-		},
-	};
-
-	const itemVariants = {
-		hidden: { opacity: 0, y: 50 },
-		visible: {
-			opacity: 1,
-			y: 0,
-			transition: {
-				duration: 0.8,
-				ease: "easeOut",
-			},
-		},
-	};
-
 	const cardVariants = {
 		hidden: { opacity: 0, scale: 0.9 },
 		visible: {
@@ -55,7 +33,7 @@ const ProductShowcase = () => {
 	// Handle category card click
 	const handleCategoryClick = (categoryId) => {
 		navigate(`/products?category=${categoryId}`);
-		window.scrollTo({ top: 0, behavior: "smooth" });
+		scrollToTop();
 	};
 
 	return (
@@ -71,7 +49,7 @@ const ProductShowcase = () => {
 
 			<motion.div
 				className="container mx-auto relative z-10"
-				variants={containerVariants}
+				variants={showcaseContainerVariants}
 				initial="hidden"
 				whileInView="visible"
 				viewport={{ once: true, amount: 0.2 }}
@@ -79,11 +57,11 @@ const ProductShowcase = () => {
 				{/* Section Header */}
 				<motion.div
 					className="text-center mb-16 lg:mb-20"
-					variants={itemVariants}
+					variants={showcaseItemVariants}
 				>
 					<motion.h2
 						className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6"
-						variants={itemVariants}
+						variants={showcaseItemVariants}
 					>
 						<span className="text-gray-100">
 							What We{" "}
@@ -98,7 +76,7 @@ const ProductShowcase = () => {
 					</motion.h2>
 					<motion.p
 						className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
-						variants={itemVariants}
+						variants={showcaseItemVariants}
 					>
 						Browse through our selection of tobacco products, hookahs, vaping essentials, and smoking accessories. Find what you need for your smoking experience.
 					</motion.p>
@@ -107,7 +85,7 @@ const ProductShowcase = () => {
 				{/* Product Categories Grid */}
 				<motion.div
 					className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-16"
-					variants={containerVariants}
+					variants={showcaseContainerVariants}
 				>
 					{PRODUCT_SHOWCASE_DATA.map((category, index) => (
 						<motion.div
@@ -199,7 +177,7 @@ const ProductShowcase = () => {
 				{/* View All Products CTA */}
 				<motion.div
 					className="text-center"
-					variants={itemVariants}
+					variants={showcaseItemVariants}
 				>
 					<motion.div
 						className="inline-block cursor-pointer"
