@@ -119,7 +119,7 @@ const ProductShowcase = () => {
 						>
 							{/* Card Container */}
 							<motion.div
-								className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-700/50 overflow-hidden shadow-2xl"
+								className="relative bg-gradient-to-br from-gray-800/90 to-gray-900/90 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-gray-700/50 overflow-hidden shadow-2xl min-h-[300px]"
 								whileHover={{
 									borderColor: "rgba(251, 191, 36, 0.5)",
 									transition: { duration: 0.3 },
@@ -140,7 +140,7 @@ const ProductShowcase = () => {
 												<img
 													src={category.image}
 													alt={category.title}
-													className="w-20 h-20 lg:w-24 lg:h-24 object-contain"
+													className="w-full h-full object-cover"
 												/>
 											</div>
 										</div>

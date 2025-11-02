@@ -72,7 +72,7 @@ const ProductDetail = () => {
 								<img
 									src={product.image}
 									alt={product.name}
-									className="w-64 h-64 object-contain"
+									className="w-full h-full object-cover"
 								/>
 							</div>
 						</motion.div>
@@ -185,7 +185,7 @@ const ProductDetail = () => {
 										<img
 											src={relatedProduct.image}
 											alt={relatedProduct.name}
-											className="w-24 h-24 object-contain transition-transform duration-300 group-hover:scale-110"
+											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
 										/>
 									</div>
 									<div className="p-4">
