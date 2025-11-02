@@ -23,6 +23,29 @@ body {
 	color-scheme: dark;
 }
 
+/* Performance optimizations for smoother animations */
+* {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+	scroll-behavior: smooth;
+}
+
+/* GPU acceleration for animated elements only when needed */
+[class*="animate-"] {
+	transform: translateZ(0);
+	backface-visibility: hidden;
+}
+
+/* Optimize image rendering */
+img {
+	image-rendering: -webkit-optimize-contrast;
+	image-rendering: crisp-edges;
+}
+
 /* Line clamp utilities for product descriptions */
 .line-clamp-2 {
 	display: -webkit-box;
