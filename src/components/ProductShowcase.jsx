@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { PRODUCT_SHOWCASE_DATA } from "../constants/constants";
 import { scrollToTop } from "../utils/scrollToTop";
 import { showcaseContainerVariants, showcaseItemVariants } from "../utils/animations";
+import LazyImage from "./LazyImage";
 
 const ProductShowcase = () => {
 	const navigate = useNavigate();
@@ -114,8 +115,8 @@ const ProductShowcase = () => {
 										transition={{ duration: 0.3 }}
 									>
 										<div className={`w-32 h-32 lg:w-40 lg:h-40 rounded-xl bg-gradient-to-r ${category.gradient} p-1`}>
-											<div className="w-full h-full bg-gray-900 rounded-lg flex items-center justify-center">
-												<img
+											<div className="w-full h-full bg-gray-900 rounded-lg flex items-center justify-center overflow-hidden">
+												<LazyImage
 													src={category.image}
 													alt={category.title}
 													className="w-full h-full object-cover"

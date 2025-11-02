@@ -5,6 +5,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { FaSearch, FaFilter, FaTimes } from "react-icons/fa";
 import { PRODUCTS_DATA, PRODUCT_CATEGORIES } from "../constants/constants";
 import { scrollToTop } from "../utils/scrollToTop";
+import LazyImage from "../components/LazyImage";
 
 const Products = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
@@ -215,10 +216,10 @@ const Products = () => {
 								>
 									{/* Product Image */}
 									<div className="relative h-48 bg-gray-900 flex items-center justify-center overflow-hidden">
-										<img
+										<LazyImage
 											src={product.image}
 											alt={product.name}
-											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+											className="w-full h-full transition-transform duration-300 group-hover:scale-110"
 										/>
 										{!product.inStock && (
 											<div className="absolute inset-0 bg-black/60 flex items-center justify-center">

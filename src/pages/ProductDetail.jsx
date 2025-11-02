@@ -5,6 +5,7 @@ import { FaArrowLeft, FaStar, FaCheck, FaTimes } from "react-icons/fa";
 import Footer from "../components/Footer";
 import { PRODUCTS_DATA } from "../constants/constants";
 import { scrollToTop } from "../utils/scrollToTop";
+import LazyImage from "../components/LazyImage";
 
 const ProductDetail = () => {
 	const { productId } = useParams();
@@ -70,10 +71,10 @@ const ProductDetail = () => {
 							className="space-y-4"
 						>
 							<div className="bg-gray-900 rounded-xl p-8 flex items-center justify-center">
-								<img
+								<LazyImage
 									src={product.image}
 									alt={product.name}
-									className="w-full h-full object-cover"
+									className="w-full h-full"
 								/>
 							</div>
 						</motion.div>
@@ -182,8 +183,8 @@ const ProductDetail = () => {
 									className="group bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-sm rounded-xl border border-gray-700/50 overflow-hidden hover:border-amber-500/50 transition-all duration-300 cursor-pointer"
 									onClick={() => navigate(`/products/${relatedProduct.id}`)}
 								>
-									<div className="h-48 bg-gray-900 flex items-center justify-center">
-										<img
+									<div className="h-48 bg-gray-900 flex items-center justify-center overflow-hidden">
+										<LazyImage
 											src={relatedProduct.image}
 											alt={relatedProduct.name}
 											className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
