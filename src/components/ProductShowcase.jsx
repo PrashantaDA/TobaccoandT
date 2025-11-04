@@ -120,6 +120,9 @@ const ProductShowcase = () => {
 													src={category.image}
 													alt={category.title}
 													className="w-full h-full object-cover"
+													eager={index < 4}
+													fetchPriority={index < 4 ? "high" : undefined}
+													sizes="(max-width: 1024px) 50vw, 33vw"
 												/>
 											</div>
 										</div>

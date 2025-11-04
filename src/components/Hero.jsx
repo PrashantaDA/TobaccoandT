@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { BiChevronRight } from "react-icons/bi";
 import { heroContainerVariants, heroItemVariants, imageVariants, buttonVariants } from "../utils/animations";
+import LazyImage from "./LazyImage";
 
 const Hero = () => {
 
@@ -111,16 +112,23 @@ const Hero = () => {
 						className="relative group"
 						transition={{ duration: 0.3 }}
 					>
-						{/* Image with hover effects */}
-						<motion.img
-							src={heroImage}
-							alt="Premium Hookah Collection"
-							className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto object-contain transition-all duration-500 transform group-hover:drop-shadow-2xl"
+						{/* Image with hover effects - eagerly loaded for instant display */}
+						<motion.div
+							className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg transition-all duration-500 transform group-hover:drop-shadow-2xl"
 							transition={{
 								duration: 0.6,
 								ease: "easeInOut",
 							}}
-						/>
+						>
+							<LazyImage
+								src={heroImage}
+								alt="Premium Hookah Collection"
+								className="w-full h-auto object-contain"
+								eager
+								fetchPriority="high"
+								showSkeleton={false}
+							/>
+						</motion.div>
 
 						{/* Floating particles effect */}
 						<motion.div

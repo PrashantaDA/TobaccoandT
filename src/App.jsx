@@ -4,8 +4,9 @@ import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import BoundaryLoader from "./components/BoundaryLoader";
 import Footer from "./components/Footer";
-
-const Home = lazy(() => import("./pages/Home"));
+// Critical route - load synchronously
+import Home from "./pages/Home";
+// Other routes - lazy load
 const Products = lazy(() => import("./pages/Products"));
 const ProductDetail = lazy(() => import("./pages/ProductDetail"));
 const About = lazy(() => import("./pages/About"));
@@ -14,15 +15,21 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => {
 	const [initialLoading, setInitialLoading] = useState(true);
-	const [showApp, setShowApp] = useState(false);
 
 	useEffect(() => {
-		const t = setTimeout(() => {
+		// Load immediately when DOM is ready
+		if (document.readyState === "complete" || document.readyState === "interactive") {
 			setInitialLoading(false);
-			// let the loader disappear first, then fade-in app
-			setTimeout(() => setShowApp(true), 50);
-		}, 1800);
-		return () => clearTimeout(t);
+		} else {
+			const handleLoad = () => setInitialLoading(false);
+			window.addEventListener("load", handleLoad, { once: true });
+			// Fallback: hide loader after max 300ms if page hasn't loaded
+			const timeout = setTimeout(() => setInitialLoading(false), 300);
+			return () => {
+				window.removeEventListener("load", handleLoad);
+				clearTimeout(timeout);
+			};
+		}
 	}, []);
 
 	if (initialLoading) {
@@ -30,7 +37,7 @@ const App = () => {
 	}
 
 	return (
-		<div className={`transition-opacity duration-500 ${showApp ? "opacity-100" : "opacity-0"}`}>
+		<div className="opacity-100">
 			<Navbar />
 			<ScrollToTop />
 			<Suspense fallback={<BoundaryLoader />}>

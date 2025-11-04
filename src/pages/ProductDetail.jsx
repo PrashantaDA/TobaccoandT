@@ -71,11 +71,14 @@ const ProductDetail = () => {
 							className="space-y-4"
 						>
 							<div className="bg-gray-900 rounded-xl p-8 flex items-center justify-center">
-								<LazyImage
-									src={product.image}
-									alt={product.name}
-									className="w-full h-full"
-								/>
+									<LazyImage
+										src={product.image}
+										alt={product.name}
+										className="w-full h-full"
+										eager
+										fetchPriority="high"
+										sizes="100vw"
+									/>
 							</div>
 						</motion.div>
 

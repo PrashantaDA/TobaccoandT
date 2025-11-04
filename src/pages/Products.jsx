@@ -220,6 +220,9 @@ const Products = () => {
 											src={product.image}
 											alt={product.name}
 											className="w-full h-full transition-transform duration-300 group-hover:scale-110"
+											eager={index < 4}
+											fetchPriority={index < 4 ? "high" : undefined}
+											sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
 										/>
 										{!product.inStock && (
 											<div className="absolute inset-0 bg-black/60 flex items-center justify-center">
